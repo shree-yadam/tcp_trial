@@ -8,8 +8,9 @@ server.listen(3000, () => {
 server.on("connection", (client) => {
   console.log("New connection established");
   client.write("Welcome!");
+  client.setEncoding("utf8");
   client.on("data", (data) => {
-    console.log("client says: ", data.toString());
+    console.log("client says: ", data);
   });
 });
 
